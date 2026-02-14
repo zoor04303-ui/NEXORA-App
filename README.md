@@ -1,5 +1,15 @@
-# NEXORA 🚀
-AI Marketing & Analytics Platform for Online Stores
+# 🚀 NEXORA
+
+> AI Marketing & Analytics Platform for Online Stores
+
+## 💡 Why NEXORA?
+
+Online store owners struggle with tracking performance and planning marketing campaigns.
+NEXORA simplifies everything using AI-powered insights and automation.
+
+
+https://github.com/your-username/NEXORA-App.git
+
 
 NEXORA is an AI-powered marketing assistant designed for online store owners.
 It helps analyze store performance, generate campaign ideas, and track profits with smart insights.
