@@ -1,0 +1,19 @@
+from flask import Flask, jsonify, request
+import json
+
+app = Flask(__name__)
+
+# Load dummy database
+with open('database/data.json') as f:
+    data = json.load(f)
+
+@app.route('/')
+def home():
+    return "Welcome to NEXORA Backend!"
+
+@app.route('/dashboard')
+def dashboard():
+    return jsonify(data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
