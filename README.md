@@ -3,6 +3,8 @@ AI Marketing & Analytics Platform for Online Stores
 
 NEXORA is an AI-powered marketing assistant designed for online store owners.
 It helps analyze store performance, generate campaign ideas, and track profits with smart insights.
+https://img.shields.io/badge/license-MIT-blue.svg
+
 
 
 ## ✨ Features
