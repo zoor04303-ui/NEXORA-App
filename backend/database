@@ -1,0 +1,20 @@
+{
+  "sales": {
+    "this_month": 8540,
+    "last_month": 7520
+  },
+  "marketing": [
+    {
+      "campaign": "Spring Sale",
+      "budget": 3250
+    },
+    {
+      "campaign": "New Product Launch",
+      "budget": 1280
+    }
+  ],
+  "seo": {
+    "score": 85,
+    "opportunities": ["Improve product descriptions", "Add new keywords"]
+  }
+}
