@@ -1,37 +1,41 @@
-
-// Import Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// 🔥 بيانات مشروعك من Firebase
+// Firebase config (حطي بيانات مشروعك هنا)
 const firebaseConfig = {
-  apiKey: "حطي apiKey هنا",
-  authDomain: "حطي authDomain هنا",
-  projectId: "حطي projectId هنا",
-  storageBucket: "حطي storageBucket هنا",
-  messagingSenderId: "حطي messagingSenderId هنا",
-  appId: "حطي appId هنا"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "nexora-43ca3",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// تجربة إضافة طلب
-async function addTestOrder() {
-  try {
-    await addDoc(collection(db, "orders"), {
-      name: "Order #1",
-      price: 150,
-      status: "pending",
-      createdAt: new Date()
-    });
+// ➕ إضافة طلب
+window.addOrder = async function () {
+  await addDoc(collection(db, "orders"), {
+    name: "Order #" + Math.floor(Math.random() * 1000),
+    price: Math.floor(Math.random() * 500),
+    status: "pending",
+    createdAt: new Date()
+  });
 
-    console.log("✅ Order added successfully!");
-  } catch (error) {
-    console.error("❌ Error adding order: ", error);
-  }
-}
+  alert("Order Added Successfully 🚀");
+};
 
-// تشغيل التجربة
-addTestOrder();
+// ▶️ تحميل الطلبات
+window.loadOrders = async function () {
+  const querySnapshot = await getDocs(collection(db, "orders"));
+  const list = document.getElementById("ordersList");
+  list.innerHTML = "";
+
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    const li = document.createElement("li");
+    li.textContent = `${data.name} - $${data.price} - ${data.status}`;
+    list.appendChild(li);
+  });
+};
