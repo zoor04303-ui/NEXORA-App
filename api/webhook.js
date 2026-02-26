@@ -1,21 +1,9 @@
-export default async function handler(req, res) {
-  try {
-    if (req.method === "POST") {
-      const data = req.body;
-      console.log("Salla Webhook:", data);
+export default function handler(req, res) {
+  console.log("Method:", req.method);
 
-      return res.status(200).json({
-        success: true,
-        received: true,
-      });
-    }
-
-    return res.status(200).json({
-      message: "Webhook endpoint is alive",
-    });
-
-  } catch (error) {
-    console.error("Webhook error:", error);
-    return res.status(200).json({ error: false });
+  if (req.method === "POST") {
+    return res.status(200).send("OK");
   }
+
+  return res.status(200).send("Webhook Ready");
 }
