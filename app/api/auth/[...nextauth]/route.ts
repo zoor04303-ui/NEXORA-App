@@ -1,6 +1,8 @@
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
+export const dynamic = "force-dynamic"
+
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
@@ -24,7 +26,8 @@ const handler = NextAuth({
       }
     })
   ],
-  secret: process.env.NEXTAUTH_SECRET
+  secret: process.env.NEXTAUTH_SECRET,
+  trustHost: true
 })
 
 export { handler as GET, handler as POST }
